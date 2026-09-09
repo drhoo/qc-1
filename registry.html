@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QC-1 Registry</title>
+  <style>
+    :root {
+      --teal: #1fa6a0;
+      --green: #198754;
+      --amber: #c58a00;
+      --ink: #1f2933;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 48px;
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 14px 0 34px;
+    }
+
+    .service {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.04);
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .issuer {
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    .green .dot {
+      background: var(--green);
+    }
+
+    .amber {
+      color: var(--amber);
+    }
+
+    .amber .dot {
+      background: var(--amber);
+    }
+
+    .meta {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 10px 18px;
+      font-size: 15px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 38px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 38px;
+      }
+
+      .top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">QC-1</div>
+
+    <h1>Public registry</h1>
+
+    <p class="intro">
+      QC-1 records registered QR-linked destinations, their issuer and current service status.
+    </p>
+
+    <section class="service">
+      <div class="top">
+        <div>
+          <div class="name">BeachBand</div>
+          <div class="issuer">Issued by Pebble</div>
+        </div>
+
+        <div class="status green">
+          <span class="dot"></span>
+          Active
+        </div>
+      </div>
+
+      <div class="meta">
+        <div class="label">Registry ID</div>
+        <div>QC-1-001</div>
+
+        <div class="label">Privacy</div>
+        <div>P0 — minimum data</div>
+
+        <div class="label">Destination</div>
+        <div>beachbands.com.au</div>
+
+        <div class="label">Verification</div>
+        <div><a href="/verify/beachband.html">View record</a></div>
+      </div>
+    </section>
+
+    <section class="service">
+      <div class="top">
+        <div>
+          <div class="name">PleaseMove</div>
+          <div class="issuer">Issued by Pebble</div>
+        </div>
+
+        <div class="status amber">
+          <span class="dot"></span>
+          Development
+        </div>
+      </div>
+
+      <div class="meta">
+        <div class="label">Registry ID</div>
+        <div>QC-1-002</div>
+
+        <div class="label">Privacy</div>
+        <div>P0 — minimum data</div>
+
+        <div class="label">Destination</div>
+        <div>Not yet live</div>
+
+        <div class="label">Verification</div>
+        <div><a href="/verify/pleasemove.html">View record</a></div>
+      </div>
+    </section>
+
+    <p class="footer">
+      QC-1 verifies registered destination, issuer and service status. It does not verify the printed QR image itself.
+    </p>
+  </main>
+</body>
+</html>
