@@ -4,9 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QC-1 — Trust made simple</title>
+
   <style>
     :root {
       --teal: #1fa6a0;
+      --green: #198754;
+      --amber: #c58a00;
+      --red: #c0392b;
       --ink: #1f2933;
       --muted: #6b7280;
       --line: #e5e7eb;
@@ -56,9 +60,15 @@
       line-height: 0.95;
     }
 
+    h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
     .tagline {
       font-size: 24px;
       margin: 0 0 28px;
+      color: var(--ink);
     }
 
     .rule {
@@ -90,11 +100,88 @@
       color: var(--muted);
       line-height: 1.6;
     }
+
+    .checker {
+      margin-top: 10px;
+    }
+
+    .checker-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 16px;
+      color: var(--ink);
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--teal);
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 14px 20px;
+      background: var(--teal);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.92;
+    }
+
+    .result {
+      margin-top: 16px;
+      font-weight: 700;
+      min-height: 24px;
+    }
+
+    .unknown {
+      color: var(--amber);
+    }
+
+    .registry-link {
+      margin-top: 28px;
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 32px 24px;
+      }
+
+      .checker-row {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
+
 <body>
   <main>
     <section class="card">
+
       <div class="eyebrow">QC-1</div>
 
       <h1>Trust made simple.</h1>
@@ -114,7 +201,80 @@
         QC-1 checks registered destinations, issuer identity and service status
         while keeping the QR itself ordinary and universally readable.
       </p>
+
+      <div class="rule"></div>
+
+      <section class="checker">
+        <h2>Check a destination</h2>
+
+        <p>
+          Enter a website or destination to see whether it is registered with QC-1.
+        </p>
+
+        <div class="checker-row">
+          <input
+            id="destination"
+            type="text"
+            placeholder="e.g. beachbands.com.au"
+            autocomplete="off"
+          >
+
+          <button onclick="checkDestination()">
+            Check
+          </button>
+        </div>
+
+        <div id="result" class="result"></div>
+      </section>
+
+      <p class="registry-link">
+        <a href="/registry.html">View the public QC-1 registry →</a>
+      </p>
+
     </section>
   </main>
+
+  <script>
+    function normalise(value) {
+      return value
+        .trim()
+        .toLowerCase()
+        .replace(/^https?:\/\//, '')
+        .replace(/^www\./, '')
+        .replace(/\/.*$/, '');
+    }
+
+    function checkDestination() {
+      const input = document.getElementById('destination');
+      const result = document.getElementById('result');
+      const destination = normalise(input.value);
+
+      if (!destination) {
+        result.textContent = 'Enter a destination to check.';
+        result.className = 'result unknown';
+        return;
+      }
+
+      if (
+        destination === 'beachbands.com.au' ||
+        destination === 'scanto.help' ||
+        destination === 'scan.band'
+      ) {
+        window.location.href = '/verify/beachband.html';
+        return;
+      }
+
+      result.textContent = '? This destination is not currently registered with QC-1.';
+      result.className = 'result unknown';
+    }
+
+    document
+      .getElementById('destination')
+      .addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+          checkDestination();
+        }
+      });
+  </script>
 </body>
 </html>
