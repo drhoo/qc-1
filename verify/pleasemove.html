@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QC-1 — PleaseMove</title>
+  <style>
+    :root {
+      --teal: #1fa6a0;
+      --amber: #c58a00;
+      --ink: #1f2933;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    main {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 680px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    }
+
+    .brand {
+      color: var(--teal);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .verified {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #fff4d6;
+      color: var(--amber);
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      font-weight: 700;
+      flex: 0 0 auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .sub {
+      margin-top: 6px;
+      color: var(--muted);
+    }
+
+    .details {
+      margin-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .value {
+      color: var(--ink);
+    }
+
+    .development {
+      color: var(--amber);
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 24px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <div class="brand">QC-1</div>
+
+      <div class="verified">
+        <div class="mark">?</div>
+        <div>
+          <h1>Registered destination</h1>
+          <div class="sub">PleaseMove</div>
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="row">
+          <div class="label">Issuer</div>
+          <div class="value">Pebble</div>
+        </div>
+
+        <div class="row">
+          <div class="label">Service</div>
+          <div class="value">PleaseMove</div>
+        </div>
+
+        <div class="row">
+          <div class="label">Status</div>
+          <div class="value development">Development</div>
+        </div>
+
+        <div class="row">
+          <div class="label">Privacy</div>
+          <div class="value">P0 — minimum data</div>
+        </div>
+
+        <div class="row">
+          <div class="label">Destination</div>
+          <div class="value">Not yet live</div>
+        </div>
+      </div>
+
+      <p class="note">
+        This destination is registered with QC-1 but is not yet active.
+        QC-1 verifies registered destination, issuer and service status.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
