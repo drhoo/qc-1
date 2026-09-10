@@ -67,8 +67,19 @@
 
     .tagline {
       font-size: 24px;
-      margin: 0 0 28px;
+      margin: 0 0 18px;
       color: var(--ink);
+    }
+
+    .independent {
+      display: inline-block;
+      margin: 0 0 28px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: #e9f5f5;
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 800;
     }
 
     .rule {
@@ -187,8 +198,12 @@
       <h1>Trust made simple.</h1>
 
       <p class="tagline">
-        A simple trust and verification layer for QR-linked destinations.
+        An independent trust and verification layer for QR-linked destinations.
       </p>
+
+      <div class="independent">
+        Independent by design.
+      </div>
 
       <div class="rule"></div>
 
@@ -198,8 +213,13 @@
       </div>
 
       <p>
-        QC-1 checks registered destinations, issuer identity and service status
+        QC-1 checks registered destinations, issuer identity and current service status
         while keeping the QR itself ordinary and universally readable.
+      </p>
+
+      <p>
+        QC-1 makes its own verification judgement rather than simply repeating
+        the view of a single platform or commercial provider.
       </p>
 
       <div class="rule"></div>
